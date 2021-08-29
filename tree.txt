@@ -1,0 +1,26 @@
+.
+├── README.md
+├── package.json
+├── src
+│   ├── connectors
+│   │   ├── freeagent
+│   │   │   ├── base
+│   │   │   │   ├── freagent.properties.json
+│   │   │   │   ├── freeagent.base.json
+│   │   │   │   └── icon.png
+│   │   │   ├── definitions
+│   │   │   │   └── createSubscriptionReqDto.json
+│   │   │   ├── parameters
+│   │   │   │   └── projectStage.json
+│   │   │   ├── policies
+│   │   │   │   └── default.json
+│   │   │   └── resources
+│   │   │       ├── contacts
+│   │   │       │   ├── get-GetContacts\ copy.json
+│   │   │       │   └── post-CreateContact.json
+│   │   │       └── invoices
+│   │   └── neto
+│   └── docs
+└── tree.txt
+
+12 directories, 11 files
