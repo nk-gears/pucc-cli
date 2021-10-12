@@ -1,4 +1,4 @@
-# PUCC Cli (WIP)
+# PUCC CLI (WIP)
 
 Power Up Custom Connector CLI
 
