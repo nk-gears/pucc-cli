@@ -1,5 +1,7 @@
 # PUCC Cli (WIP)
 
+Power Up Custom Connector CLI
+
 Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors 
 
 ### Work in Progress
