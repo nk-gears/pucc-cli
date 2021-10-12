@@ -1,6 +1,6 @@
-# Openapi Connector Authoring  (WIP)
+# PUCC Cli (WIP)
 
-Makes OpenAPI Authoring a Joyful one.
+Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors 
 
 ### Work in Progress
 
