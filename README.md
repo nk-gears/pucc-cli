@@ -4,6 +4,8 @@ Power Up Custom Connector CLI
 
 Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors 
 
+Note : can also be used for 2.0 swagger authoring
+
 ### Work in Progress
 
 ### Why this ?
