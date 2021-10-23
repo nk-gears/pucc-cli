@@ -20,6 +20,11 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
 - Definitions, Parameters are kept separately.
 
 
+## Features
+
+[] Split a Existing Swagger file to a pucc folder. (detect using .pucc file)
+
+
 ```
 
 .

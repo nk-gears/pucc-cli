@@ -1,0 +1,87 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "freeagent1",
+
+		"description": "FreeAgent Automation for the connecting to FreeAgent endpoints FreeAgent Automation for the connecting to FreeAgent endpoints",
+		"version": "1.0.0",
+		"contact": {
+			"name": "Example.com",
+			"url": "https://Example.com.com/",
+			"email": "contact@Example.com.com"
+		}
+	},
+	"host": "sandbox.FreeAgent.com",
+	"basePath": "/vapid",
+	"schemes": ["https"],
+	"consumes": ["application/json"],
+	"produces": ["application/json"],
+	"paths": {},
+	"definitions": {},
+	"parameters": {},
+	"x-ms-connector-metadata": [
+		{
+			"propertyName": "Website",
+			"propertyValue": "https://Example.com.com/"
+		},
+		{
+			"propertyName": "Privacy policy",
+			"propertyValue": "https://Example.com.com/privacy-policies"
+		},
+		{
+			"propertyName": "Categories",
+			"propertyValue": "AI;Data"
+		}
+	],
+	"securityDefinitions": {
+		"oauth2_auth": {
+			"type": "oauth2",
+			"flow": "accessCode",
+			"authorizationUrl": "https://lexample.FreeAgent.com/oauth/authorize",
+			"tokenUrl": "https://lexample.FreeAgent.com/oauth/token",
+
+			"scopes": {}
+		}
+	},
+	"security": [
+		{
+			"oauth2_auth": []
+		}
+	],
+	"responses": {
+		"Error": {
+			"description": "Error",
+			"schema": {
+				"title": "body",
+				"type": "string",
+				"description": "Reply to the JSON containing the error details."
+			},
+			"headers": {
+				"Content-Type": {
+					"description": "Content-Type",
+					"type": "string"
+				}
+			}
+		}
+	},
+	"tags": [],
+	"x-ms-capabilities": {
+		"file-picker": {
+			"open": {
+				"operationId": "Project-ListAllRootFolders"
+			},
+			"browse": {
+				"operationId": "Project-ListFolder",
+				"parameters": {
+					"folderId": {
+						"value-property": "id"
+					}
+				}
+			},
+			"value-title": "DisplayName",
+			"value-collection": "folders",
+			"value-folder-property": "IsFolder",
+			"value-media-property": "MediaType"
+		}
+	}
+}
