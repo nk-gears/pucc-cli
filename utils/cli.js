@@ -2,6 +2,14 @@ const meow = require('meow');
 const meowHelp = require('cli-meow-help');
 
 const flags = {
+	folderPath:{
+		type: 'string',
+		
+		alias: 'f',
+		desc:"folder path"
+	
+
+	},
 	split: {
 		type: 'boolean',
 		default: false,
@@ -52,7 +60,8 @@ const flags = {
 };
 
 const commands = {
-	help: { desc: `Print help info` }
+	help: { desc: `Print help info` },
+	split: { desc: `Split a swagger file` },
 };
 
 const helpText = meowHelp({

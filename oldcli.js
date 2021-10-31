@@ -12,7 +12,6 @@
  const log = require('./utils/log');
  const inquirer=require('inquirer');
  const alert = require('cli-alerts');
- const split = require('./utils/core/split');
  
  const create = require('./utils/core/create');
  
@@ -64,19 +63,16 @@
  
  
  (async () => {
-     //init({ clear });
-     //input.includes(`help`) && cli.showHelp(0);
+     init({ clear });
+     input.includes(`help`) && cli.showHelp(0);
      console.log(input)
-	 console.log(flags)
      flags.split &&
          await alert({
              type: 'info',
              name: `Power Up Custom Connector Cli`,
              msg: `Split Connector Files`
          });
-         //await promptForMissingOptionsForSplit(options);
-		 const inputOptions={};
-		 await split(inputOptions)
+         await promptForMissingOptionsForSplit(options);
      /*flags.create && 
      (await promptForMissingOptions(options)) &&
      (await create(options));*/		
