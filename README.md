@@ -36,6 +36,7 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
 
 - [ ] Support to Split Large Connection Operations to Separate Groups
 - [ ] Support CI/CD Workflow for deploying the connector to specific environment
+- Supports Versioning
 
 
 
@@ -45,7 +46,7 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
 - [x] pucc split
 - [ ] pucc build
 - [ ] pucc validate
-- [ ] pucc publish
+- [ ] pucc deploy
 - [ ] pucc add-policy
 - [ ] pucc add-action
     - [ ] method : get
@@ -55,7 +56,7 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
     - [ ] response_schema:
 - [ ] pucc add-trigger
 - [ ] pucc add-connection
-- [ ] pucc schema-to-cb --file
+- [ ] pucc schema -c
 - [ ] pucc add-policy
     - [ ] Listing all Policies
 
