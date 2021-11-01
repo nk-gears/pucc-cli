@@ -27,8 +27,7 @@
  './freeagent'
  );
  
- 
- 
+
  const options = {
      name: 'freeagent',
      targetDirectory: targetDir,
@@ -66,7 +65,7 @@
  (async () => {
      //init({ clear });
      //input.includes(`help`) && cli.showHelp(0);
-     console.log(input)
+   console.log(input)
 	 console.log(flags)
      flags.split &&
          await alert({
@@ -76,7 +75,8 @@
          });
          //await promptForMissingOptionsForSplit(options);
 		 const inputOptions={};
-		 await split(inputOptions)
+     //Validate before calling Split
+		 //await split(inputOptions)
      /*flags.create && 
      (await promptForMissingOptions(options)) &&
      (await create(options));*/		

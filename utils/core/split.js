@@ -3,16 +3,12 @@ const { dim, red, yellow } = require('chalk');
 const handleError = require('cli-handle-error');
 const spinner = ora({ text: '' });
 const fs = require('fs');
-const basePath = `/Users/Nirmal/projects/appdews/Microsoft/pucc-cli/FreeAgent`;
 
 const createJSONFile = function (targetPath, filename, fcontent) {
 	const fd = fs.openSync(`${targetPath}/${filename}.json`, 'w+');
 	var resp = JSON.stringify(fcontent, null, 2);
     if(resp && resp.length>0)
-	    fs.writeSync(fd, resp);
-    else
-        console.log(targetPath)
-    
+	    fs.writeSync(fd, resp);    
 };
 
 const createResources = ({ apiDefContent, targetPath }) => {
@@ -66,9 +62,11 @@ function createDefinitions({ apiDefContent, targetPath }) {
 
 module.exports = async inputOptions => {
 
+	const basePath = inputOptions.sourceFolderPath;
+	const targetFolderPath = inputOptions.targetFolderPath;
     return new Promise((resolve,reject)=>{
 
-        let apiDef = inputOptions.apiDefFileName || 'apiDefinition.swagger.json';
+	let apiDef = inputOptions.apiDefFileName || 'apiDefinition.swagger.json';
 	let apiProp = inputOptions.apiPropFileName || 'apiProperties.json';
 	const apiDefContent = require(`${basePath}/${apiDef}`);
 	const apiPropContent = require(`${basePath}/${apiProp}`);
@@ -77,12 +75,10 @@ module.exports = async inputOptions => {
 		apiDefContent,
 		targetPath: `${basePath}/fa/resources`
 	});
-	createDefinitions({ apiDefContent, targetPath: `${basePath}/fa/definitions` });
-	createParameters({ apiDefContent, targetPath: `${basePath}/fa/parameters` });
-	createBaseMeta({ apiDefContent,apiPropContent, targetPath: `${basePath}/fa/basemeta` });
-	createPolicies({ apiPropContent, targetPath: `${basePath}/fa/policies` });
+	createDefinitions({ apiDefContent, targetPath: `${targetFolderPath}/definitions` });
+	createParameters({ apiDefContent, targetPath: `${targetFolderPath}/parameters` });
+	createBaseMeta({ apiDefContent,apiPropContent, targetPath: `${targetFolderPath}/basemeta` });
+	createPolicies({ apiPropContent, targetPath: `${targetFolderPath}/policies` });
     resolve();
-
     })
-	
 };

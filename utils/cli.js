@@ -4,11 +4,15 @@ const meowHelp = require('cli-meow-help');
 const flags = {
 	folderPath:{
 		type: 'string',
-		
 		alias: 'f',
 		desc:"folder path"
-	
 
+	},
+	build: {
+		type: 'string',
+		default: false,
+		alias: 's',
+		desc: `Split a Swagger file to separate path files to a target directory`
 	},
 	split: {
 		type: 'boolean',

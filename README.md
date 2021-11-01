@@ -1,39 +1,72 @@
 # PUCC Cli (WIP)
 
-Power Up Custom Connector CLI
+Power Up (your) Custom Connector -  CLI
 
 Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors 
 
-### Work in Progress
-
 ### Why this ?
 
-Authoring and Publishing OpenAPI are not that much Complex when working few REST API Paths. But as the api grows large, this has become cumbersome in managing everything in one single file.
+Authoring and Publishing OpenAPI are not that much Complex when working few REST API Paths. But as the api grows large, this has been a cumbersome in managing everything in one single file.
 
 This issue already addressed by multipe tools, openapi-cli, redoc-cli (redocly). Then even support to split an existing file and bundle them again to a single openapi yaml/json file.
 
-But all these tools focus on Swagger 3.0. At this time of writing, they don't support 2.0. I work in open source project where it demands 2.0 only
+But all these tools focus on Swagger 3.0. At this time of writing, they don't support 2.0. Currently Custom Connectors in Power Automate supports Swagger 2.0 only
 
 # What does it do ?
 
 - Easily Author OpenAPI by keeping the file separate across different folders for each resource operations/actions
 - Definitions, Parameters are kept separately.
 
+# Features in v1.0
 
-## Features
+- [ ] Create a New Custom Connector Files (supports remote creation as well)
+- [ ] Split a OpenAPI file to a folder
+- [ ] Build a OpenAPI file from a Individual files
+- [ ] Validate the file using Validation
+- [ ] Deploy the connector to the Power Automate Platform.
+- [ ] Add a Policy  Template to an Action
+- [ ] Add a New Action with Interactive user Prompts
+- [ ] Add a New Trigger
+- [ ] Add a Connection
+- [ ] Add a Policy
+- [ ] Add a Capability
+- [ ] Convert a Clipboard JSON Content to Pastable Schema
 
-[] Split a Existing Swagger file to a pucc folder. (detect using .pucc file)
+### Features in Roadmap
 
+- [ ] Support to Split Large Connection Operations to Separate Groups
+- [ ] Support CI/CD Workflow for deploying the connector to specific environment
+
+
+
+# Work in Progress
+
+- [ ] pucc create
+- [x] pucc split
+- [ ] pucc build
+- [ ] pucc validate
+- [ ] pucc publish
+- [ ] pucc add-policy
+- [ ] pucc add-action
+    - [ ] method : get
+    - [ ] path:
+    - [ ] operation: SomeOperationName
+    - [ ] parameters: userId,Name,title
+    - [ ] response_schema:
+- [ ] pucc add-trigger
+- [ ] pucc add-connection
+- [ ] pucc schema-to-cb --file
+- [ ] pucc add-policy
+    - [ ] Listing all Policies
+
+
+### Folder Structure Created by PUCC CLI
 
 ```
 
-.
-├── README.md
-├── package.json
-├── src
 │   ├── connectors
 │   │   ├── freeagent
-│   │   │   ├── base
+│   │   │   ├── basemeta
 │   │   │   │   ├── freagent.properties.json
 │   │   │   │   ├── freeagent.base.json
 │   │   │   │   └── icon.png
@@ -45,34 +78,34 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
 │   │   │   │   └── default.json
 │   │   │   └── resources
 │   │   │       ├── contacts
-│   │   │       │   ├── get-GetContacts\ copy.json
+│   │   │       │   ├── get-GetContacts copy.json
 │   │   │       │   └── post-CreateContact.json
-│   │   │       └── invoices
-│   │   └── neto
-│   └── docs
 
 
 ```
 
 
 
-# Features
 
-- [ ] Split a OpenAPI file to a folder
-- [ ] Build a OpenAPI file from a Individual files
-- [ ] Validate the file using Validation
-- [ ] Create Output file for PACONN Upload
+## Usage
 
-
-
-# Usage
+## Create New Connector
 
 ```
-
-
-
-
 ```
+
+## Deploy or Update a Connector
+
+
+## Validate a Connector
+
+
+
+
+
+
+
+
 
 # Motivation
 
@@ -84,6 +117,5 @@ This is mainly targetted for developing connectors for the Power Automate Custom
 # Contributors
 
 Contributors welcome. Please send a PR or open a Issue if needed.
-
 
 
