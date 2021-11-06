@@ -90,9 +90,25 @@ But all these tools focus on Swagger 3.0. At this time of writing, they don't su
 
 ## Usage
 
+## Split Connector
+
+```
+ pucc split --sourceFolderPath "/Users/NirmalK/projects/microsoft/pucc-cli/shared_freeagent-5f9efd50f3eb6b19ac-5fa7ba4a50058013f4"  --targetFolderPath "/Users/NirmalK/projects/microsoft/pucc-cli/connectors/freeagent" --name freeagent
+
+```
+
+
+## Build Connector
+
+```
+ pucc build --sourceFolderPath "/Users/NirmalK/projects/microsoft/pucc-cli/connectors/freeagent" --name freeagent
+
+```
+
 ## Create New Connector
 
 ```
+
 ```
 
 ## Deploy or Update a Connector

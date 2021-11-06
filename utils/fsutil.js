@@ -30,4 +30,13 @@ function findFilesInDir(startPath, filter) {
   return results;
 }
 
-module.exports = { findFilesInDir };
+
+const createJSONFile = function (targetPath, filename, fcontent) {
+	const fd = fs.openSync(`${targetPath}/${filename}.json`, 'w+');
+	var resp = JSON.stringify(fcontent, null, 2);
+    if(resp && resp.length>0)
+	    fs.writeSync(fd, resp);    
+};
+
+
+module.exports = { findFilesInDir,createJSONFile };

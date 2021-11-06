@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /**
  * pucc
  * PowerUp Custom Connector CLI
@@ -13,6 +12,7 @@
  const inquirer=require('inquirer');
  const alert = require('cli-alerts');
  const split = require('./utils/core/split');
+ const build = require('./utils/core/build');
  
  const create = require('./utils/core/create');
  
@@ -72,11 +72,12 @@
              type: 'info',
              name: `Power Up Custom Connector Cli`,
              msg: `Split Connector Files`
-         });
+         }) && await split(flags);
          //await promptForMissingOptionsForSplit(options);
 		 const inputOptions={};
      //Validate before calling Split
-		 //await split(inputOptions)
+      await build(flags);
+		 
      /*flags.create && 
      (await promptForMissingOptions(options)) &&
      (await create(options));*/		

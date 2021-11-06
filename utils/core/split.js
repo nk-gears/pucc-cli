@@ -3,6 +3,9 @@ const { dim, red, yellow } = require('chalk');
 const handleError = require('cli-handle-error');
 const spinner = ora({ text: '' });
 const fs = require('fs');
+const fx = require('mkdir-recursive');
+
+
 
 const createJSONFile = function (targetPath, filename, fcontent) {
 	const fd = fs.openSync(`${targetPath}/${filename}.json`, 'w+');
@@ -32,10 +35,13 @@ const createResources = ({ apiDefContent, targetPath }) => {
 	});
 };
 
-function createBaseMeta({ apiDefContent, targetPath }) {
+function createBaseMeta({ apiDefContent, apiPropContent,targetPath }) {
     const defData={...apiDefContent};
     defData.paths= defData.definitions=defData.parameters={};
-    createJSONFile(`${targetPath}`, `conn.basemeta`, defData);
+    createJSONFile(`${targetPath}`, `base.info`, defData);
+	const propContent={...apiPropContent};
+	propContent.policyTemplateInstances={};
+	createJSONFile(`${targetPath}`, `base.prop`, apiPropContent);
 
 }
 function createPolicies({ apiPropContent, targetPath }) {
@@ -60,6 +66,15 @@ function createDefinitions({ apiDefContent, targetPath }) {
 	});
 }
 
+const ensureDirectories=(targetFolderPath)=>{
+	const rootDirs=["policies","resources","definitions","parameters","basemeta"];
+	rootDirs.map(dirName=>{
+		fx.mkdirSync(`${targetFolderPath}/${dirName}`)
+	});
+	
+
+};
+
 module.exports = async inputOptions => {
 
 	const basePath = inputOptions.sourceFolderPath;
@@ -71,9 +86,11 @@ module.exports = async inputOptions => {
 	const apiDefContent = require(`${basePath}/${apiDef}`);
 	const apiPropContent = require(`${basePath}/${apiProp}`);
 
+	
+	ensureDirectories(targetFolderPath);
 	createResources({
 		apiDefContent,
-		targetPath: `${basePath}/fa/resources`
+		targetPath: `${targetFolderPath}/resources`
 	});
 	createDefinitions({ apiDefContent, targetPath: `${targetFolderPath}/definitions` });
 	createParameters({ apiDefContent, targetPath: `${targetFolderPath}/parameters` });

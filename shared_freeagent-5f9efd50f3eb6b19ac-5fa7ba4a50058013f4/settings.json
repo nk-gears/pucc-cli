@@ -1,0 +1,9 @@
+{
+  "connectorId": "shared_freeagent-5f9efd50f3eb6b19ac-5fa7ba4a50058013f4",
+  "environment": "Default-9ea2fa3a-1bc0-4b47-85f6-4116b5e6fd14",
+  "apiProperties": "apiProperties.json",
+  "apiDefinition": "apiDefinition.swagger.json",
+  "icon": "icon.png",
+  "powerAppsUrl": "https://api.powerapps.com",
+  "powerAppsApiVersion": "2016-11-01"
+}

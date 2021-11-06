@@ -10,9 +10,9 @@ const flags = {
 	},
 	build: {
 		type: 'string',
-		default: false,
-		alias: 's',
-		desc: `Split a Swagger file to separate path files to a target directory`
+		default: "false",
+		alias: 'b',
+		desc: `Build connector files`
 	},
 	split: {
 		type: 'boolean',

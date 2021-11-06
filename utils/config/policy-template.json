@@ -1,0 +1,26 @@
+{
+
+"ConvertArrayToObject":{
+    "parameters": {
+        "x-ms-apimTemplate-operationName": [ ""],
+        "x-ms-apimTemplateParameter.propertyParentPath": "@body()",
+        "x-ms-apimTemplateParameter.propertySubPath": "references",
+        "x-ms-apimTemplateParameter.keyWithinCollectionPath": "resourceLink",
+        "x-ms-apimTemplateParameter.newPropertyPath": "@body().references",
+        "x-ms-apimTemplateParameter.retainKey": "false",
+        "x-ms-apimTemplate-policySection": "Request"
+      },
+      "title": "Convert array of references to object"
+}
+Convert An Array To An Object
+Convert An Object To An Array
+Convert Delimited String Into Array Of Objects
+Route Request
+Set Connection Status To Unauthenticated
+Set Header/Query Parameter Value From URL
+Set Host URL
+Set HTTP Header
+Set Property
+Set Query String Parameter
+
+}

@@ -28,6 +28,7 @@
 		"inquirer": "^8.2.0",
 		"listr": "^0.14.3",
 		"meow": "^9.0.0",
+		"mkdir-recursive": "^0.4.0",
 		"ncp": "^2.0.0",
 		"ora": "^5.4.1",
 		"pkg-install": "^1.0.0",
