@@ -40,13 +40,15 @@ const buildApiSwaggerFile = (options, coreFileInfo) => {
 
   //Load all files from folders
   const parameter_files = getContentListFromFileList(coreFileInfo.parameters);
-  const parameters = parameter_files.map(p => {
-    return p;
+  let parameters = {};
+  parameter_files.map(p => {
+    parameters = { ...parameters, ...p };
   });
 
   const definitions_files = getContentListFromFileList(coreFileInfo.definitions);
-  const definitions = definitions_files.map(p => {
-    return p;
+  let definitions = {};
+  definitions_files.map(d => {
+    definitions = { ...definitions, ...d };
   });
 
   const originalPaths = originalBase.paths;
