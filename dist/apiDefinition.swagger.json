@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "FreeAgent",
+    "title": "FreeAgent1",
     "contact": {
       "name": "Nirmal",
       "url": "https://nkdews.me",
@@ -1803,82 +1803,42 @@
     }
   },
   "definitions": {
-    "properties": {
-      "connectionParameters": {
-        "token": {
-          "type": "oauthSetting",
-          "oAuthSettings": {
-            "identityProvider": "oauth2",
-            "clientId": "[[CLIENT ID]]",
-            "scopes": [],
-            "redirectMode": "Global",
-            "redirectUrl": "https://global.consent.azure-apim.net/redirect",
-            "properties": {
-              "IsFirstParty": "False",
-              "IsOnbehalfofLoginSupported": false
-            },
-            "customParameters": {
-              "authorizationUrl": {
-                "value": "https://api.freeagent.com/v2/approve_app"
-              },
-              "tokenUrl": {
-                "value": "https://api.freeagent.com/v2/token_endpoint"
-              },
-              "refreshUrl": {
-                "value": "https://api.freeagent.com/v2/token_endpoint"
-              }
-            }
-          }
+    "CreateSubscriptionReqDto12": {
+      "description": "Subscribe for Procore Events",
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "string",
+          "description": "Please refer Procore Admin Section",
+          "title": "Please refer Procore Admin Section for available resources - Enter each line or comma separated",
+          "default": "Coordination Issues,Drawing Areas,Drawing Sets,Drawing Uploads,Drawings,Markup Layers,Pdf Download Pages,Meeting Attendees,Meeting Categories,Meeting Topics,Meetings,Image Categories,Images,Tasks,ToDos,RFI Replies,RFIs,Specification Section Divisions,Specification Section Revisions,Specification Sections,Specification Sets,Submittals,Timecard Entries",
+          "x-ms-summary": "Please refer Procore Admin Section for available resources - Enter each line or comma separated"
+        },
+        "event_type": {
+          "type": "string",
+          "description": "Event Type",
+          "enum": [
+            "CREATE",
+            "UPDATE",
+            "DELETE"
+          ],
+          "title": "Event Type",
+          "x-ms-summary": "Event Type"
+        },
+        "webhook_url": {
+          "type": "string",
+          "description": "Webhook Url",
+          "x-ms-notification-url": true,
+          "title": "Webhook Url",
+          "default": "@{ListCallbackUrl()}",
+          "x-ms-visibility": "internal"
         }
       },
-      "iconBrandColor": "#da3b01",
-      "capabilities": [],
-      "policyTemplateInstances": [
-        {
-          "templateId": "stringreplace",
-          "title": "Replace Invoice Url to ID",
-          "parameters": {
-            "x-ms-apimTemplate-operationName": [
-              "ListInvoices"
-            ],
-            "x-ms-apimTemplateParameter.propertyParentPath": "@body().invoices",
-            "x-ms-apimTemplateParameter.propertySubPath": "url",
-            "x-ms-apimTemplateParameter.sourceString": "https://api.freeagent.com/v2/invoices/",
-            "x-ms-apimTemplateParameter.replacementString": "",
-            "x-ms-apimTemplateParameter.newPropertyPath": "@item().id",
-            "x-ms-apimTemplate-policySection": "Response"
-          }
-        },
-        {
-          "templateId": "setproperty",
-          "title": "Set Title for Invoice",
-          "parameters": {
-            "x-ms-apimTemplate-operationName": [
-              "ListInvoices"
-            ],
-            "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body().invoices",
-            "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "title",
-            "x-ms-apimTemplateParameter.propertyValuePathTemplate": "'{@item()['id']}-{@item()['reference']}'",
-            "x-ms-apimTemplate-policySection": "Response"
-          }
-        },
-        {
-          "templateId": "stringreplace",
-          "title": "Replace Contact Url to ID",
-          "parameters": {
-            "x-ms-apimTemplate-operationName": [
-              "GetContacts"
-            ],
-            "x-ms-apimTemplateParameter.propertyParentPath": "@body().contacts",
-            "x-ms-apimTemplateParameter.propertySubPath": "url",
-            "x-ms-apimTemplateParameter.sourceString": "https://api.freeagent.com/v2/contacts/",
-            "x-ms-apimTemplateParameter.replacementString": "",
-            "x-ms-apimTemplateParameter.newPropertyPath": "@item().id",
-            "x-ms-apimTemplate-policySection": "Response"
-          }
-        }
-      ],
-      "publisher": "Nirmal Kumar"
+      "required": [
+        "webhook_url",
+        "event_type",
+        "resources"
+      ]
     }
   },
   "parameters": {},

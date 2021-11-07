@@ -1,0 +1,112 @@
+{
+  "/recurring_invoices": {
+    "get": {
+      "summary": "List all recurring invoices",
+      "x-ms-summary": "List all recurring invoices",
+      "description": "List all recurring invoices",
+      "operationId": "ListAllRecurringInvoices",
+      "parameters": [],
+      "responses": {
+        "200": {
+          "description": "200",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "recurring_invoices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "x-ms-summary": "Url",
+                      "description": "Url"
+                    },
+                    "contact": {
+                      "type": "string",
+                      "x-ms-summary": "Contact",
+                      "description": "Contact"
+                    },
+                    "dated_on": {
+                      "type": "string",
+                      "x-ms-summary": "Dated On",
+                      "description": "Dated On"
+                    },
+                    "frequency": {
+                      "type": "string",
+                      "x-ms-summary": "Frequency",
+                      "description": "Frequency"
+                    },
+                    "next_recurs_on": {
+                      "type": "string",
+                      "x-ms-summary": "Next Recurs On",
+                      "description": "Next Recurs On"
+                    },
+                    "recurring_end_date": {
+                      "type": "string",
+                      "x-ms-summary": "Recurring End Date",
+                      "description": "Recurring End Date"
+                    },
+                    "recurring_status": {
+                      "type": "string",
+                      "x-ms-summary": "Recurring Status",
+                      "description": "Recurring Status"
+                    },
+                    "reference": {
+                      "type": "string",
+                      "x-ms-summary": "Reference",
+                      "description": "Reference"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "x-ms-summary": "Currency",
+                      "description": "Currency"
+                    },
+                    "exchange_rate": {
+                      "type": "string",
+                      "x-ms-summary": "Exchange Rate",
+                      "description": "Exchange Rate"
+                    },
+                    "net_value": {
+                      "type": "string",
+                      "x-ms-summary": "Net Value",
+                      "description": "Net Value"
+                    },
+                    "sales_tax_value": {
+                      "type": "string",
+                      "x-ms-summary": "Sales Tax Value",
+                      "description": "Sales Tax Value"
+                    },
+                    "total_value": {
+                      "type": "string",
+                      "x-ms-summary": "Total Value",
+                      "description": "Total Value"
+                    },
+                    "omit_header": {
+                      "type": "boolean",
+                      "x-ms-summary": "Omit Header",
+                      "description": "Omit Header"
+                    },
+                    "always_show_bic_and_iban": {
+                      "type": "boolean",
+                      "x-ms-summary": "Always Show BIC And IBAN",
+                      "description": "Always Show BIC And IBAN"
+                    },
+                    "payment_terms_in_days": {
+                      "type": "integer",
+                      "format": "int32",
+                      "x-ms-summary": "Payment Terms In Days",
+                      "description": "Payment Terms In Days"
+                    }
+                  }
+                },
+                "x-ms-summary": "Recurring Invoices",
+                "description": "Recurring Invoices"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

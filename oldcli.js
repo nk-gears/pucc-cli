@@ -13,7 +13,7 @@
  const inquirer=require('inquirer');
  const alert = require('cli-alerts');
  
- const create = require('./utils/core/create');
+ const create = require('./utils/core/new');
  
  const input = cli.input;
  const flags = cli.flags;

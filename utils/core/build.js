@@ -5,21 +5,26 @@ const spinner = ora({ text: '' });
 const fs = require('fs');
 const fsutil = require('../fsutil');
 
+const getJSONContentFromFile = (filepath) => {
+  let finalContentList = getContentListFromFileList([filepath]);
+  return finalContentList[0].content;
+}
+
 const getContentListFromFileList = (fileList) => {
   let finalContentList = [];
-  files.forEach((f) => {
+  fileList.forEach((f) => {
     const fileContent = require(f);
     finalContentList.push({ filename: f, content: fileContent });
   });
   return finalContentList;
 }
 
-const buildApiSwaggerFile = (options, coreFileInfo) => {
+const buildApiSwaggerFile = (options, coreInfo) => {
 
   let finalResourceList = {};
-  let files = coreFileInfo.resources;
-  files.forEach((f) => {
-    const fileContent = require(f);
+  let files = coreInfo.resources;
+  coreInfo.resources.forEach((f) => {
+    const fileContent = f.content;
     const pathName = Object.keys(fileContent)[0];
     const pathNameInfo = fileContent[pathName];
     const pathMethodName = Object.keys(pathNameInfo)[0];
@@ -35,20 +40,19 @@ const buildApiSwaggerFile = (options, coreFileInfo) => {
   });
 
   // massage the data in the finalResourceList
-  const originalBase = coreFileInfo.baseContent.baseInfo;
-  const definitions = coreFileInfo.definitions;
-
+  const originalBase = coreInfo.baseContent.baseInfo;
+  
   //Load all files from folders
-  const parameter_files = getContentListFromFileList(coreFileInfo.parameters);
-  let parameters = {};
+  const parameter_files = coreInfo.parameters;
+  let parameters = originalBase.parameters;
   parameter_files.map(p => {
-    parameters = { ...parameters, ...p };
+    parameters = { ...parameters, ...p.content };
   });
 
-  const definitions_files = getContentListFromFileList(coreFileInfo.definitions);
-  let definitions = {};
+  const definitions_files =coreInfo.definitions;
+  let definitions = originalBase.definitions;
   definitions_files.map(d => {
-    definitions = { ...definitions, ...d };
+    definitions = { ...definitions, ...d.content };
   });
 
   const originalPaths = originalBase.paths;
@@ -67,38 +71,46 @@ const buildApiSwaggerFile = (options, coreFileInfo) => {
 
 };
 
+const buildApiPropertiesFile = (options, coreInfo) => {
+   const policy_files = coreInfo.baseContent.policies;
 
-const buildApiPropertiesFile = (options, coreFileInfo) => {
-  const policyFiles = coreFileInfo.policies;
-  //create array from policy files
-  const apiPropContent = coreFileInfo.propInfo;
-  var finalPolicies = [...apiPropContent.properties.policyTemplateInstances, ...policies];
+   let policies = [];
+   policy_files.map(p => {
+    policies.push(p.content);
+   });
+
+  const apiPropContent = coreInfo.baseContent.propInfo;
+  const policyInstances=apiPropContent.properties.policyTemplateInstances || []
+  var finalPolicies = [...policyInstances, ...policies];
   apiPropContent.properties.policyTemplateInstances = finalPolicies;
-  fsutil.createJSONFile(options.targetFolderPath, apiPropContent);
+  fsutil.createJSONFile(options.targetFolderPath,'apiProperties.json', apiPropContent);
 }
 
 
 module.exports = async options => {
 
-  console.log(options);
+  spinner.start(dim(`Preparing to Build…\n`));
   const sourceFolderPath = options.sourceFolderPath;
   const targetFolderPath = options.targetFolderPath;
   return new Promise((resolve, reject) => {
 
     //load the core files
-    const resources = fsutil.findFilesInDir(`${sourceFolderPath}/resources`, ".json");
-    const definitions = fsutil.findFilesInDir(`${sourceFolderPath}/definitions`, ".json");
-    const parameters = fsutil.findFilesInDir(`${sourceFolderPath}/parameters`, ".json");
-    const policies = fsutil.findFilesInDir(`${sourceFolderPath}/policies`, ".json");
+    const resources = getContentListFromFileList(fsutil.findFilesInDir(`${sourceFolderPath}/resources`, ".json"));
+    const definitions = getContentListFromFileList(fsutil.findFilesInDir(`${sourceFolderPath}/definitions`, ".json"));
+    const parameters = getContentListFromFileList(fsutil.findFilesInDir(`${sourceFolderPath}/parameters`, ".json"));
+    const policies = getContentListFromFileList(fsutil.findFilesInDir(`${sourceFolderPath}/policies`, ".json"));
 
-    const baseInfo = `${sourceFolderPath}/con.base.json`;
-    const basePropInfo = `${sourceFolderPath}/con.base.prop.json`;
+    const baseInfo = getJSONContentFromFile(`${sourceFolderPath}/basemeta/base.info.json`);
+    const basePropInfo = getJSONContentFromFile(`${sourceFolderPath}/basemeta/base.prop.json`);
 
-    const coreFileInfo = { baseContent: { baseInfo: baseInfo, propInfo: basePropInfo }, resources, definitions, parameters, policies };
+    const coreInfo = { baseContent: { baseInfo: baseInfo, propInfo: basePropInfo,policies:policies }, resources, definitions, parameters };
 
-    buildApiSwaggerFile(options, coreFileInfo);
-    buildApiPropertiesFile(options, coreFileInfo);
-
+    console.log(dim(`❯❯ Generating Swagger file`));
+    buildApiSwaggerFile(options, coreInfo);
+    console.log(dim(`❯❯ Generating Properties file`));
+    buildApiPropertiesFile(options, coreInfo);
+    spinner.stop();
+    console.log(dim(`❯❯ Build Complete. File available in ./dist`));
     resolve();
   })
 };

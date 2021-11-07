@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "connectionParameters": {
+      "token": {
+        "type": "oauthSetting",
+        "oAuthSettings": {
+          "identityProvider": "oauth2",
+          "clientId": "[[CLIENT ID]]",
+          "scopes": [],
+          "redirectMode": "Global",
+          "redirectUrl": "https://global.consent.azure-apim.net/redirect",
+          "properties": {
+            "IsFirstParty": "False",
+            "IsOnbehalfofLoginSupported": false
+          },
+          "customParameters": {
+            "authorizationUrl": {
+              "value": "https://api.freeagent.com/v2/approve_app"
+            },
+            "tokenUrl": {
+              "value": "https://api.freeagent.com/v2/token_endpoint"
+            },
+            "refreshUrl": {
+              "value": "https://api.freeagent.com/v2/token_endpoint"
+            }
+          }
+        }
+      }
+    },
+    "iconBrandColor": "#da3b01",
+    "capabilities": [],
+    "publisher": "Nirmal Kumar",
+    "stackOwner": "Nirmal Kumar",
+    "policyTemplateInstances": []
+  }
+}

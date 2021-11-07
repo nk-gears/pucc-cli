@@ -76,7 +76,7 @@ const ensureDirectories=(targetFolderPath)=>{
 };
 
 module.exports = async inputOptions => {
-
+	console.log("test")
 	const basePath = inputOptions.sourceFolderPath;
 	const targetFolderPath = inputOptions.targetFolderPath;
     return new Promise((resolve,reject)=>{
@@ -86,7 +86,6 @@ module.exports = async inputOptions => {
 	const apiDefContent = require(`${basePath}/${apiDef}`);
 	const apiPropContent = require(`${basePath}/${apiProp}`);
 
-	
 	ensureDirectories(targetFolderPath);
 	createResources({
 		apiDefContent,

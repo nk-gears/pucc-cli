@@ -1,51 +1,54 @@
 {
-	"name": "openapi-connector-authoring",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"bin": {
-		"pucc": "index.js"
-	},
-	"scripts": {
-		"format": "prettier --write \"./**/*.{js,json}\"",
-		"build": "swagger-cli bundle src/openapi.yaml --outfile _build/openapi.yaml --type yaml",
-		"test": "npm run build && spectral lint _build/openapi.yaml",
-		"preview": "npm run build && redoc-cli serve _build/openapi.yaml --options.onlyRequiredInSamples",
-		"html": "npm run build && redoc-cli bundle _build/openapi.yaml  --output _build/index.html --options.onlyRequiredInSamples",
-		"clean": "rm -r _build",
-		"deploy": "./ci/deploy.sh"
-	},
-	"dependencies": {
-		"await-to-js": "^3.0.0",
-		"axios": "^0.21.1",
-		"chalk": "^4.1.2",
-		"cli-alerts": "^1.2.2",
-		"cli-handle-error": "^4.4.0",
-		"cli-handle-unhandled": "^1.1.1",
-		"cli-meow-help": "^2.0.2",
-		"cli-welcome": "^2.2.2",
-		"gitignore": "^0.7.0",
-		"inquirer": "^8.2.0",
-		"listr": "^0.14.3",
-		"meow": "^9.0.0",
-		"mkdir-recursive": "^0.4.0",
-		"ncp": "^2.0.0",
-		"ora": "^5.4.1",
-		"pkg-install": "^1.0.0",
-		"replace-in-files": "^3.0.0",
-		"util": "^0.12.4"
-	},
-	"devDependencies": {
-		"prettier": "^2.3.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/nk-gears/openapi-connector-authoring.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/nk-gears/openapi-connector-authoring/issues"
-	},
-	"homepage": "https://github.com/nk-gears/openapi-connector-authoring#readme"
+  "name": "@nk-gears/pucc-cli",
+  "version": "0.0.1",
+  "description": "Power Up (your) Custom Connector -  CLI. Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors",
+  "main": "index.js",
+  "bin": {
+    "pucc": "index.js"
+  },
+  "scripts": {
+    "format": "prettier --write \"./**/*.{js,json}\"",
+    "build": "swagger-cli bundle src/openapi.yaml --outfile _build/openapi.yaml --type yaml",
+    "test": "npm run build && spectral lint _build/openapi.yaml",
+    "preview": "npm run build && redoc-cli serve _build/openapi.yaml --options.onlyRequiredInSamples",
+    "html": "npm run build && redoc-cli bundle _build/openapi.yaml  --output _build/index.html --options.onlyRequiredInSamples",
+    "clean": "rm -r _build",
+    "deploy": "./ci/deploy.sh"
+  },
+  "dependencies": {
+    "await-to-js": "^3.0.0",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.2",
+    "cli-alerts": "^1.2.2",
+    "cli-handle-error": "^4.4.0",
+    "cli-handle-unhandled": "^1.1.1",
+    "cli-meow-help": "^2.0.2",
+    "cli-welcome": "^2.2.2",
+    "gitignore": "^0.7.0",
+    "inquirer": "^8.2.0",
+    "listr": "^0.14.3",
+    "meow": "^9.0.0",
+    "mkdir-recursive": "^0.4.0",
+    "ncp": "^2.0.0",
+    "ora": "^5.4.1",
+    "pkg-install": "^1.0.0",
+    "replace-in-files": "^3.0.0",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nk-gears/openapi-connector-authoring.git"
+  },
+  "author": "Nirmal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nk-gears/openapi-connector-authoring/issues"
+  },
+  "homepage": "https://github.com/nk-gears/openapi-connector-authoring#readme",
+  "keywords": [
+    "custom-connector"
+  ]
 }

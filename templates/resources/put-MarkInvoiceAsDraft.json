@@ -1,0 +1,36 @@
+{
+  "/invoices/{id}/transitions/mark_as_draft": {
+    "put": {
+      "summary": "Mark invoice as draft",
+      "x-ms-summary": "Mark invoice as draft",
+      "description": "Mark invoice as draft",
+      "operationId": "MarkInvoiceAsDraft",
+      "consumes": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "default": "",
+          "in": "path",
+          "x-ms-url-encoding": "single",
+          "type": "string",
+          "x-ms-summary": "Invoice Id",
+          "description": "Invoice Id",
+          "required": true,
+          "x-ms-dynamic-values": {
+            "operationId": "ListInvoices",
+            "value-collection": "invoices",
+            "value-path": "id",
+            "value-title": "title"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "default"
+        }
+      }
+    }
+  }
+}

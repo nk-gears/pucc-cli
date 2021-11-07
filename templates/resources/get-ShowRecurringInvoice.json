@@ -1,0 +1,176 @@
+{
+  "/recurring_invoices/{id}": {
+    "get": {
+      "summary": "Show Recurring Invoice",
+      "x-ms-summary": "Show Recurring Invoice",
+      "description": "Show Recurring Invoice",
+      "operationId": "ShowRecurringInvoice",
+      "parameters": [
+        {
+          "name": "id",
+          "default": "",
+          "in": "path",
+          "x-ms-url-encoding": "single",
+          "x-ms-summary": "Recurring Invoice Id",
+          "description": "Recurring Invoice Id",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "200",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "recurring_invoice": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "x-ms-summary": "Url",
+                    "description": "Url"
+                  },
+                  "contact": {
+                    "type": "string",
+                    "x-ms-summary": "Contact",
+                    "description": "Contact"
+                  },
+                  "dated_on": {
+                    "type": "string",
+                    "x-ms-summary": "Dated On",
+                    "description": "Dated On"
+                  },
+                  "frequency": {
+                    "type": "string",
+                    "x-ms-summary": "Frequency",
+                    "description": "Frequency"
+                  },
+                  "next_recurs_on": {
+                    "type": "string",
+                    "x-ms-summary": "Next Recurs On",
+                    "description": "Next Recurs On"
+                  },
+                  "recurring_end_date": {
+                    "type": "string",
+                    "x-ms-summary": "Recurring End Date",
+                    "description": "Recurring End Date"
+                  },
+                  "recurring_status": {
+                    "type": "string",
+                    "x-ms-summary": "Recurring Status",
+                    "description": "Recurring Status"
+                  },
+                  "reference": {
+                    "type": "string",
+                    "x-ms-summary": "Reference",
+                    "description": "Reference"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "x-ms-summary": "Currency",
+                    "description": "Currency"
+                  },
+                  "exchange_rate": {
+                    "type": "string",
+                    "x-ms-summary": "Exchange Rate",
+                    "description": "Exchange Rate"
+                  },
+                  "net_value": {
+                    "type": "string",
+                    "x-ms-summary": "Net Value",
+                    "description": "Net Value"
+                  },
+                  "sales_tax_value": {
+                    "type": "string",
+                    "x-ms-summary": "Sales Tax Value",
+                    "description": "Sales Tax Value"
+                  },
+                  "total_value": {
+                    "type": "string",
+                    "x-ms-summary": "Total Value",
+                    "description": "Total Value"
+                  },
+                  "omit_header": {
+                    "type": "boolean",
+                    "x-ms-summary": "Omit Header",
+                    "description": "Omit Header"
+                  },
+                  "always_show_bic_and_iban": {
+                    "type": "boolean",
+                    "x-ms-summary": "Always Show BIC And IBAN",
+                    "description": "Always Show BIC And IBAN"
+                  },
+                  "payment_terms_in_days": {
+                    "type": "integer",
+                    "format": "int32",
+                    "x-ms-summary": "Payment Terms In Days",
+                    "description": "Payment Terms In Days"
+                  },
+                  "invoice_items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "x-ms-summary": "Url",
+                          "description": "Url"
+                        },
+                        "position": {
+                          "type": "integer",
+                          "format": "int32",
+                          "x-ms-summary": "Position",
+                          "description": "Position"
+                        },
+                        "description": {
+                          "type": "string",
+                          "x-ms-summary": "description",
+                          "description": "description"
+                        },
+                        "item_type": {
+                          "type": "string",
+                          "x-ms-summary": "Item Type",
+                          "description": "Item Type"
+                        },
+                        "price": {
+                          "type": "string",
+                          "x-ms-summary": "Price",
+                          "description": "Price"
+                        },
+                        "quantity": {
+                          "type": "string",
+                          "x-ms-summary": "Quantity",
+                          "description": "Quantity"
+                        },
+                        "sales_tax_rate": {
+                          "type": "string",
+                          "x-ms-summary": "Sales Tax Rate",
+                          "description": "Sales Tax Rate"
+                        },
+                        "sales_tax_status": {
+                          "type": "string",
+                          "x-ms-summary": "Sales Tax Status",
+                          "description": "Sales Tax Status"
+                        },
+                        "category": {
+                          "type": "string",
+                          "x-ms-summary": "Category",
+                          "description": "Category"
+                        }
+                      }
+                    },
+                    "x-ms-summary": "Invoice Items",
+                    "description": "Invoice Items"
+                  }
+                },
+                "x-ms-summary": "Recurring Invoice",
+                "description": "Recurring Invoice"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

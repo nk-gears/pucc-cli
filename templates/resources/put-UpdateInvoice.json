@@ -1,0 +1,63 @@
+{
+  "/invoices/{id}": {
+    "put": {
+      "summary": "Update Invoice",
+      "x-ms-summary": "Update Invoice",
+      "description": "Update Invoice",
+      "operationId": "UpdateInvoice",
+      "consumes": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "default": "",
+          "in": "path",
+          "x-ms-url-encoding": "single",
+          "type": "string",
+          "x-ms-summary": "Invoice Id",
+          "description": "Invoice Id",
+          "x-ms-dynamic-values": {
+            "operationId": "ListInvoices",
+            "value-collection": "invoices",
+            "value-path": "id",
+            "value-title": "title"
+          },
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "invoice": {
+                "type": "object",
+                "properties": {
+                  "notes": {
+                    "type": "string",
+                    "x-ms-summary": "Notes",
+                    "description": "Notes"
+                  }
+                },
+                "x-ms-summary": "Invoice",
+                "description": "Invoice"
+              }
+            },
+            "default": {
+              "invoice": {
+                "notes": "An example of some additional text."
+              }
+            }
+          },
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Ok"
+        }
+      }
+    }
+  }
+}

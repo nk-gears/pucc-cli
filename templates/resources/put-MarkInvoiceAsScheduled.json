@@ -1,0 +1,36 @@
+{
+  "/invoices/{id}/transitions/mark_as_scheduled": {
+    "put": {
+      "summary": "Mark invoice as scheduled",
+      "x-ms-summary": "Mark invoice as scheduled",
+      "description": "Mark invoice as scheduled",
+      "operationId": "MarkInvoiceAsScheduled",
+      "consumes": [
+        "application/json"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "default": "",
+          "in": "path",
+          "x-ms-url-encoding": "single",
+          "type": "string",
+          "x-ms-summary": "Invoice Id",
+          "description": "Invoice Id",
+          "x-ms-dynamic-values": {
+            "operationId": "ListInvoices",
+            "value-collection": "invoices",
+            "value-path": "id",
+            "value-title": "title"
+          },
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "default"
+        }
+      }
+    }
+  }
+}

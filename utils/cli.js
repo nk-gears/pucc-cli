@@ -2,61 +2,12 @@ const meow = require('meow');
 const meowHelp = require('cli-meow-help');
 
 const flags = {
-	folderPath:{
-		type: 'string',
-		alias: 'f',
-		desc:"folder path"
-
+	version1: {
+		type: `boolean`,
+		alias: `v`,
+		desc: `Print CLI version`
 	},
 	build: {
-		type: 'string',
-		default: "false",
-		alias: 'b',
-		desc: `Build connector files`
-	},
-	split: {
-		type: 'boolean',
-		default: false,
-		alias: 's',
-		desc: `Split a Swagger file to separate path files to a target directory`
-	},
-	validate: {
-		type: 'boolean',
-		default: false,
-		alias: 'v',
-		desc: `Validate the final build file. `
-	},
-	publish: {
-		type: `boolean`,
-		default: true,
-		alias: `p`,
-		desc: `Publish to target Power Automate environment`
-	},
-	create: {
-		type: `boolean`,
-		default: true,
-		alias: `c`,
-		desc: `Create a new connector`
-	},
-	create: {
-		type: `boolean`,
-		default: true,
-		alias: `c`,
-		desc: `Create a new connector`
-	},
-	addAction: {
-		type: `boolean`,
-		default: true,
-		alias: `aa`,
-		desc: `Add a action to the current connector`
-	},
-	addTrigger: {
-		type: `boolean`,
-		default: true,
-		alias: `at`,
-		desc: `Add a new trigger to the current connector`
-	},
-	version: {
 		type: `boolean`,
 		alias: `v`,
 		desc: `Print CLI version`
@@ -65,7 +16,18 @@ const flags = {
 
 const commands = {
 	help: { desc: `Print help info` },
+	build: { desc: `Create a build from a pucc folder` },
 	split: { desc: `Split a swagger file` },
+	"add-action":{desc:'Add new action file'},
+	"list-action":{desc:'List all actions'},
+	"add-trigger":{desc:'Add a new Trigger file'},
+	"list-trigger":{desc:'List all trigger'},
+	"add-capability":{desc:'Add Capability to existing'},
+	"list-policy":{desc:'List Policy'},
+	"add-connection":{desc:'Add Connection Parameter'},
+	"create":{desc:'Create a new connector'},
+	"lint":{desc:'Lint before building'},
+	"deploy":{desc:'Initiate Deploy using paconn-cli'}
 };
 
 const helpText = meowHelp({

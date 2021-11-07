@@ -1,0 +1,33 @@
+{
+  "/invoices/{id}": {
+    "delete": {
+      "summary": "Delete Invoice",
+      "x-ms-summary": "Delete Invoice",
+      "description": "Delete Invoice",
+      "operationId": "DeleteInvoice",
+      "parameters": [
+        {
+          "name": "id",
+          "default": "",
+          "in": "path",
+          "x-ms-url-encoding": "single",
+          "type": "string",
+          "x-ms-summary": "Invoice Id",
+          "description": "Invoice Id",
+          "x-ms-dynamic-values": {
+            "operationId": "ListInvoices",
+            "value-collection": "invoices",
+            "value-path": "id",
+            "value-title": "title"
+          },
+          "required": true
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "default"
+        }
+      }
+    }
+  }
+}
