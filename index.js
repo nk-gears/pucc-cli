@@ -66,13 +66,23 @@ const handleCreate=async (options)=>{
   await core.create(options);
 }
 
-const handleAddAction=async ()=>{
+const handleAddAction=async (flags)=>{
   await alert({
     type: 'info',
     name: `Power Up Custom Connector Cli`,
     msg: `Add Action`
-  }) && await core.add(flags);
+  });
+  await core.addAction(flags);
 }
+
+const handleAddParameter=async ()=>{
+  await alert({
+    type: 'info',
+    name: `Power Up Custom Connector Cli`,
+    msg: `Add Parameter`
+  }) && await core.addParameter(flags);
+}
+
 
 const handleAddPolicy=async ()=>{
   await alert({

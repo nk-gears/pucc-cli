@@ -12,7 +12,7 @@
         "summary": "List all ",
         "x-ms-summary": "List all ",
         "description": "List all ",
-        "operationId": "GetContacts",
+        "operationId": "Get",
         "parameters": []
     },
     "post": {
