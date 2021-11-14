@@ -39,4 +39,15 @@ const createJSONFile = function (targetPath, filename, fcontent) {
 };
 
 
-module.exports = { findFilesInDir,createJSONFile };
+function mkdir(inputPath) {
+  if (fs.existsSync(inputPath)) {
+    return;
+  }
+  const basePath = path.dirname(inputPath);
+  if (fs.existsSync(basePath)) {
+    fs.mkdirSync(inputPath);
+  }
+  mkdir(basePath);
+}
+
+module.exports = { mkdir,findFilesInDir,createJSONFile };

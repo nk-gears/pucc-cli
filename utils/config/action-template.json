@@ -1,0 +1,74 @@
+{
+    "get": {
+        "responses": {
+            "200": {
+                "description": "200",
+                "schema": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        },
+        "summary": "List all ",
+        "x-ms-summary": "List all ",
+        "description": "List all ",
+        "operationId": "GetContacts",
+        "parameters": []
+    },
+    "post": {
+        "summary": "Create Contact",
+        "x-ms-summary": "Create Contact",
+        "description": "Create Contact",
+        "operationId": "CreateContact",
+        "consumes": [
+            "application/json"
+        ],
+        "parameters": [
+            {
+                "name": "body",
+                "in": "body",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "contact": {
+                            "type": "object",
+                            "properties": {
+                                "first_name": {
+                                    "type": "string",
+                                    "x-ms-summary": "First Name",
+                                    "description": "First Name"
+                                },
+                                "last_name": {
+                                    "type": "string",
+                                    "x-ms-summary": "Last Name",
+                                    "description": "Last Name"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "x-ms-summary": "Email",
+                                    "description": "Email"
+                                }
+                            },
+                            "x-ms-summary": "Contact",
+                            "description": "Contact"
+                        }
+                    }
+                },
+                "required": true
+            }
+        ],
+        "responses": {
+            "200": {
+                "x-ms-summary": "200",
+                "description": "200",
+                "schema": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        }
+    },
+    "put": {},
+    "patch": {},
+    "delete": {}
+}

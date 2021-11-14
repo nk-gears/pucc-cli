@@ -57,12 +57,13 @@ const handleBuild=async ()=>{
   }) && await core.build(flags);
 }
 
-const handleCreate=async ()=>{
+const handleCreate=async (options)=>{
   await alert({
     type: 'info',
     name: `Power Up Custom Connector Cli`,
-    msg: `Split Connector Files`
-  }) && await split(flags);
+    msg: `Create Connector Files`
+  });
+  await core.create(options);
 }
 
 const handleAddAction=async ()=>{
@@ -70,7 +71,7 @@ const handleAddAction=async ()=>{
     type: 'info',
     name: `Power Up Custom Connector Cli`,
     msg: `Add Action`
-  }) && await split(flags);
+  }) && await core.add(flags);
 }
 
 const handleAddPolicy=async ()=>{
@@ -87,13 +88,16 @@ const handleAddPolicy=async ()=>{
   const isCommand = (c) => input.includes(c);
   input.includes(`help`) && cli.showHelp(0);
 
-   await handleSplit()
+  // await handleSplit()
   
-  isCommand(`split`) && (await handleSplit());
-  isCommand(`build`) && handleBuild();
-  isCommand(`create`) && handleCreate();
-  isCommand(`add-action`) && handleAddAction();
-  isCommand(`add-policy`) && handleAddPolicy();
+  //isCommand(`split`) && (await handleSplit());
+  //isCommand(`build`) && handleBuild();
+  console.log(flags);
+  console.log(input);
+  isCommand(`create`) && (await handleCreate(flags));
+  isCommand(`add-action`) && (await handleAddAction(flags));
+  //isCommand(`add-trigger`) && (await handleAddTrigger(flags));
+  //isCommand(`add-policy`) && handleAddPolicy();
 
 })();
 

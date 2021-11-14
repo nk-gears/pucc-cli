@@ -1,0 +1,52 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "",
+    "contact": {
+      "name": "",
+      "url": "",
+      "email": ""
+    },
+    "description": ""
+  },
+  "host": "",
+  "basePath": "/v2",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {  
+   
+  },
+  "parameters": {},
+  "responses": {},
+  "x-ms-connector-metadata": [
+    {
+      "propertyName": "Website",
+      "propertyValue": ""
+    },
+    {
+      "propertyName": "Privacy policy",
+      "propertyValue": ""
+    },
+    {
+      "propertyName": "Categories",
+      "propertyValue": ""
+    }
+  ],
+  "securityDefinitions": {
+    "oauth2_auth": {
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": []
+    }
+  ],
+  "tags": []
+}

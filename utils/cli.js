@@ -7,10 +7,15 @@ const flags = {
 		alias: `v`,
 		desc: `Print CLI version`
 	},
-	build: {
-		type: `boolean`,
-		alias: `v`,
-		desc: `Print CLI version`
+	targetFolder: {
+		type: `string`,
+		alias: `t`,
+		desc: `Target folder path`
+	},
+	name: {
+		type: `string`,
+		alias: `n`,
+		desc: `Name`
 	}
 };
 
