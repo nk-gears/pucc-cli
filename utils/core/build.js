@@ -109,11 +109,12 @@ module.exports = async options => {
     const basePropInfo = getJSONContentFromFile(`${sourceFolderPath}/basemeta/base.prop.json`);
 
     const coreInfo = { baseContent: { baseInfo: baseInfo, propInfo: basePropInfo,policies:policies }, resources, definitions, parameters };
-
+    fsutil.mkdir(options.targetFolderPath);
     console.log(dim(`❯❯ Generating Swagger file`));
     buildApiSwaggerFile(options, coreInfo);
     console.log(dim(`❯❯ Generating Properties file`));
     buildApiPropertiesFile(options, coreInfo);
+  
     spinner.stop();
     console.log(dim(`❯❯ Build Complete. File available in ./dist`));
     resolve();

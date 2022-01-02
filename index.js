@@ -101,12 +101,11 @@ const handleAddPolicy=async ()=>{
   const isCommand = (c) => input.includes(c);
   input.includes(`help`) && cli.showHelp(0);
 
-   //await handleSplit()
   
-  //isCommand(`split`) && (await handleSplit());
-  //isCommand(`build`) && handleBuild();
-  console.log(flags);
-  console.log(input);
+  
+  isCommand(`split`) && (await handleSplit());
+  isCommand(`build`) && (await handleBuild());
+
   isCommand(`create`) && (await handleCreate(flags));
   isCommand(`add-action`) && (await handleAddAction(flags));
   //isCommand(`add-trigger`) && (await handleAddTrigger(flags));
