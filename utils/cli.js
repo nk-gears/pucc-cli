@@ -3,9 +3,29 @@ const meowHelp = require('cli-meow-help');
 
 const flags = {
 	version: {
-		type: `string`,
+		type: `boolean`,
 		alias: `v`,
 		desc: `Print CLI version`
+	},
+	sourceFolder: {
+		type: `string`,
+		alias: `s`,
+		desc: `Target folder path`
+	},
+	targetFolder: {
+		type: `string`,
+		alias: `t`,
+		desc: `Target folder path`
+	},
+	name: {
+		type: `string`,
+		alias: `n`,
+		desc: `Name of the resource/policy/action/trigger/parameter/definition`
+	},
+	methodName: {
+		type: `string`,
+		alias: `m`,
+		desc: `Action Method Name. get, post,put post. default is get`
 	}
 };
 

@@ -3,7 +3,7 @@
     "connectionParameters": {
       "token": {
         "type": "oauthSetting",
-        "oAuthSettings": {
+        "oauthSettings": {
           "identityProvider": "oauth2",
           "clientId": "[[CLIENT ID]]",
           "scopes": [],
@@ -15,13 +15,13 @@
           },
           "customParameters": {
             "authorizationUrl": {
-              "value": "https://api.freeagent.com/v2/approve_app"
+              "value": ""
             },
             "tokenUrl": {
-              "value": "https://api.freeagent.com/v2/token_endpoint"
+              "value": ""
             },
             "refreshUrl": {
-              "value": "https://api.freeagent.com/v2/token_endpoint"
+              "value": ""
             }
           }
         }
@@ -29,8 +29,8 @@
     },
     "iconBrandColor": "#da3b01",
     "capabilities": [],
-    "publisher": "Nirmal Kumar",
-    "stackOwner": "Nirmal Kumar",
-    "policyTemplateInstances": []
+   
+    "publisher": "",
+    "stackOwner": ""
   }
 }

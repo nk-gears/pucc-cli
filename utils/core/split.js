@@ -76,7 +76,7 @@ const ensureDirectories=(targetFolderPath)=>{
 };
 
 module.exports = async inputOptions => {
-	console.log("test")
+	console.log("test1")
 	const basePath = inputOptions.sourceFolderPath;
 	const targetFolderPath = inputOptions.targetFolderPath;
     return new Promise((resolve,reject)=>{
