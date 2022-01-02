@@ -2,13 +2,8 @@ const meow = require('meow');
 const meowHelp = require('cli-meow-help');
 
 const flags = {
-	version1: {
-		type: `boolean`,
-		alias: `v`,
-		desc: `Print CLI version`
-	},
-	build: {
-		type: `boolean`,
+	version: {
+		type: `string`,
 		alias: `v`,
 		desc: `Print CLI version`
 	}

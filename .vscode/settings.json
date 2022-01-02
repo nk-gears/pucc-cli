@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "tmp": true,
+    "shared_freeagent-5f9efd50f3eb6b19ac-5fa7ba4a50058013f4": true,
+    "node_modules": true
+  }
+}

@@ -4,6 +4,8 @@ const handleError = require('cli-handle-error');
 const spinner = ora({ text: '' });
 const fs = require('fs');
 const fsutil = require('../fsutil');
+const resolvePath= require('path').resolve;
+
 
 const getJSONContentFromFile = (filepath) => {
   let finalContentList = getContentListFromFileList([filepath]);
@@ -83,15 +85,18 @@ const buildApiPropertiesFile = (options, coreInfo) => {
   const policyInstances=apiPropContent.properties.policyTemplateInstances || []
   var finalPolicies = [...policyInstances, ...policies];
   apiPropContent.properties.policyTemplateInstances = finalPolicies;
-  fsutil.createJSONFile(options.targetFolderPath,'apiProperties.json', apiPropContent);
+  fsutil.createJSONFile(options.targetFolderPath,'apiProperties', apiPropContent);
 }
 
 
 module.exports = async options => {
 
   spinner.start(dim(`Preparing to Build…\n`));
-  const sourceFolderPath = options.sourceFolderPath;
-  const targetFolderPath = options.targetFolderPath;
+  const sourceFolderPath = resolvePath(options.sourceFolderPath);
+  console.log(sourceFolderPath);
+  //process.exit();
+  const targetFolderPath = resolvePath(options.targetFolderPath);
+  options.targetFolderPath=targetFolderPath;
   return new Promise((resolve, reject) => {
 
     //load the core files

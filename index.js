@@ -50,11 +50,14 @@ const handleSplit=async ()=>{
 }
 
 const handleBuild=async ()=>{
+  console.log(flags);
+
   await alert({
     type: 'info',
     name: `Power Up Custom Connector Cli`,
     msg: `Build Connector Files`
-  }) && await core.build(flags);
+  });
+  await core.build(flags);
 }
 
 const handleCreate=async ()=>{
@@ -87,7 +90,7 @@ const handleAddPolicy=async ()=>{
   const isCommand = (c) => input.includes(c);
   input.includes(`help`) && cli.showHelp(0);
 
-   await handleSplit()
+   //await handleSplit()
   
   isCommand(`split`) && (await handleSplit());
   isCommand(`build`) && handleBuild();
