@@ -1,3 +1,6 @@
+//TODO
+//var requireJSON5 = require('require-json5');
+//var config = requireJSON5("./config.json");
 const ora = require('ora');
 const { dim, red, yellow } = require('chalk');
 const handleError = require('cli-handle-error');
@@ -39,7 +42,10 @@ const buildApiSwaggerFile = (options, coreInfo) => {
       isEventNotify = true;
       finalResourceList[pathName][pathMethodName] = fileContent[pathName][pathMethodName];
     }
+
   });
+
+
 
   // massage the data in the finalResourceList
   const originalBase = coreInfo.baseContent.baseInfo;
