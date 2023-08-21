@@ -1,6 +1,6 @@
 {
   "name": "@nk-gears/pucc-cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Power Up (your) Custom Connector -  CLI. Makes Custom Connector Authoring a Joyful one via Cli - Targetted for Power Automate - Custom Connectors",
   "main": "index.js",
   "bin": {

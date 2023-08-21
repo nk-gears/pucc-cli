@@ -8,7 +8,7 @@ const spinner = ora({ text: '' });
 const fs = require('fs');
 const fsutil = require('../fsutil');
 const resolvePath= require('path').resolve;
-
+const path = require('path');
 
 const getJSONContentFromFile = (filepath) => {
   let finalContentList = getContentListFromFileList([filepath]);
@@ -60,7 +60,11 @@ const buildApiSwaggerFile = (options, coreInfo) => {
   const definitions_files =coreInfo.definitions;
   let definitions = originalBase.definitions;
   definitions_files.map(d => {
-    definitions = { ...definitions, ...d.content };
+    //console.log(d)
+    const fileContent={[d.filename]:{...d.content}};
+    //definitions = { ...definitions,fileContent };
+    
+    definitions[path.basename(d.filename).replace(".json","")]={...d.content};
   });
 
   const originalPaths = originalBase.paths;
@@ -103,6 +107,8 @@ module.exports = async options => {
   //process.exit();
   const targetFolderPath = resolvePath(options.targetFolderPath);
   options.targetFolderPath=targetFolderPath;
+
+ 
   return new Promise((resolve, reject) => {
 
     //load the core files
